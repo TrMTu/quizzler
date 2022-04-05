@@ -33,14 +33,15 @@ class QuizzPage extends StatefulWidget {
 }
 
 class _QuizzPageState extends State<QuizzPage> {
-  @override
-  Widget build(BuildContext context) {
-    List<Icon> scoreKeeper = [
+  /*cái list e bỏ ở ngoài nhé*/
+  List<Icon> scoreKeeper = [
       Icon(
         Icons.check,
         color: Colors.green,
       )
     ];
+    @override
+  Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -75,20 +76,7 @@ class _QuizzPageState extends State<QuizzPage> {
                   fontSize: 20.0,
                 ),
               ),
-              onPressed: () {
-                setState(() {
-                  scoreKeeper.add(
-                    Icon(
-                      Icons.check,
-                      color: Colors.green,
-                    ),
-                  );
-                });
-                for (int i = 0; i < scoreKeeper.length; i++) {
-                  print(scoreKeeper[i]);
-                  print('\n');
-                }
-              },
+              onPressed: _changeIcon,
             ),
           ),
         ),
@@ -106,7 +94,7 @@ class _QuizzPageState extends State<QuizzPage> {
                   fontSize: 20.0,
                 ),
               ),
-              onPressed: () {},
+              onPressed: _changeIcon,
             ),
           ),
         ),
@@ -115,5 +103,16 @@ class _QuizzPageState extends State<QuizzPage> {
         ),
       ],
     );
+  }
+/*e chuyển cái sự kiện ra bên ngoài là đc*/
+  _changeIcon() {
+    setState(() {
+      scoreKeeper.add(
+        Icon(
+          Icons.check,
+          color: Color.fromARGB(255, 246, 249, 246),
+        ),
+      );
+    });
   }
 }
